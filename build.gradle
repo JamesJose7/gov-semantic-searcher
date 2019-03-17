@@ -25,4 +25,7 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
     compile group: 'org.apache.jena', name: 'apache-jena-libs', version: '3.10.0'
+
+    //Spring Developer tools
+    compile 'org.springframework.boot:spring-boot-devtools'
 }

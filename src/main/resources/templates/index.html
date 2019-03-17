@@ -2,7 +2,7 @@
 <meta charset="utf-8" xmlns:th="http://www.springframework.org/schema/mvc">
 <html>
 <head>
-    <!--<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css"/>-->
+    <link rel="stylesheet" th:href="@{/app.css}">
     <script th:src="@{/jquery.js}"></script>
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script th:src="@{/d3sparql.js}"></script>
@@ -35,43 +35,41 @@
     </script>
 </head>
 <body>
-    <h1>Buscador</h1>
-    <form th:action="@{/search}" method="get">
-        <input type="text" name="q" placeholder="Query...">
-        <input type="submit" value="submit">
-    </form>
+    <main id="container">
+        <h1>Buscador</h1>
+        <form th:action="@{/search}" method="get">
+            <input type="text" name="q" placeholder="Query...">
+            <input type="submit" value="submit">
+        </form>
 
+        <h1>Queries</h1>
+        <form class="form-inline">
+            <label>SPARQL endpoint:</label>
+            <div class="input-append">
+                <input id="endpoint" class="span5" value="http://localhost:8890/sparql" type="text">
+                <button class="btn" type="button" onclick="exec()">Query</button>
+                <button class="btn" type="button" onclick="exec_offline()">Use cache</button>
+                <button class="btn" type="button" onclick="toggle()"><i id="button" class="icon-chevron-up"></i></button>
+            </div>
+        </form>
+        <textarea id="sparql" class="span9" rows=15>
+    PREFIX gvld: <http://www.government-linked-data.org/>
+    PREFIX dcat: <http://www.w3.org/ns/dcat#>
+    PREFIX dct: <http://purl.org/dc/terms/>
+    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
-
-    <h1>Queries</h1>
-    <form class="form-inline">
-        <label>SPARQL endpoint:</label>
-        <div class="input-append">
-            <input id="endpoint" class="span5" value="http://localhost:8890/sparql" type="text">
-            <button class="btn" type="button" onclick="exec()">Query</button>
-            <button class="btn" type="button" onclick="exec_offline()">Use cache</button>
-            <button class="btn" type="button" onclick="toggle()"><i id="button" class="icon-chevron-up"></i></button>
-        </div>
-    </form>
-    <textarea id="sparql" class="span9" rows=15>
-PREFIX gvld: <http://www.government-linked-data.org/>
-PREFIX dcat: <http://www.w3.org/ns/dcat#>
-PREFIX dct: <http://purl.org/dc/terms/>
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-
-select ?cTitle ?label where {
-?catalog a gvld:Catalog ;
-   dct:title ?cTitle ;
-   gvld:tag ?tag ;
-   dcat:dataset ?dataset .
-?dataset dcat:distribution ?distro ;
-         dct:title ?dTitle .
-?distro dcat:downloadURL ?url .
-?tag skos:prefLabel ?label .
-} limit 100
-      </textarea>
-</div>
-<div id="result"></div>
-<a th:href="@{/}">potato</a>
+    select ?cTitle ?label where {
+    ?catalog a gvld:Catalog ;
+       dct:title ?cTitle ;
+       gvld:tag ?tag ;
+       dcat:dataset ?dataset .
+    ?dataset dcat:distribution ?distro ;
+             dct:title ?dTitle .
+    ?distro dcat:downloadURL ?url .
+    ?tag skos:prefLabel ?label .
+    } limit 100
+          </textarea>
+        <div id="result"></div>
+    </main>
 </body>
 </html>

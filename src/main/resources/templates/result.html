@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
+    <link rel="stylesheet" th:href="@{/app.css}">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
     <meta charset="UTF-8">
     <title>Search result</title>
 </head>
 <body>
-    <h1>worked</h1>
+    <main id="container">
+        <h1>Result</h1>
+        <table class="pure-table pure-table-bordered">
+            <thead>
+                <tr th:each="row : ${headers}">
+                    <th th:each="value : ${row}" th:text="${value}"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="row : ${result}">
+                    <td th:each="value : ${row}" th:text="${value}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
 </body>
 </html>
