@@ -25,6 +25,9 @@ Luego de extraer cata dataset con sus recursos la siguiente imagen muestra cómo
 ![Jena](https://imgur.com/BHZ6o2H.png)
 
 ## Aplicación para consumir los datos extraídos
+
+Repo: [link](https://github.com/JamesJose7/gov-semantic-searcher)
+
 Las tripletas generadas por Jena son almacenadas en Openlink Virtuoso y se utiliza el SPARQL endpoint que provee para responder a ciertas preguntas planteadas. El buscador puede filtrar entre grupos, etiquetas y publishers de los datos y su interfaz es la siguiente:
 
 ![Interface](https://imgur.com/ksb84W9.png)
@@ -68,3 +71,7 @@ También se ha implementado un generador de grafos a partir de una consulta SPAR
 ![graph](https://imgur.com/i3mltM3.png)
 #### Resultado
 ![graph result](https://imgur.com/dUzpwgM.png)
+
+## Recursos adicionales
+- [Documentación](https://docs.google.com/document/d/15C89Cl23RUN7icIni0wJ4RGNWdTctrdTgvuX894wxOU/edit?usp=sharing)
+
