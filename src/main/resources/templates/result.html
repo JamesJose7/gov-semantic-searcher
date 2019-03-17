@@ -18,7 +18,10 @@
             </thead>
             <tbody>
                 <tr th:each="row : ${result}">
-                    <td th:each="value : ${row}" th:text="${value}"></td>
+                    <td th:each="value : ${row}">
+                        <a th:href="@{${value}}" th:text="${value}" th:if="${#strings.contains(value, 'http://')}"></a>
+                        <p th:text="${value}" th:if="${!#strings.contains(value, 'http://')}"></p>
+                    </td>
                 </tr>
             </tbody>
         </table>
