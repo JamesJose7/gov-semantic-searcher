@@ -28,7 +28,10 @@ public class SparqlService {
             // get every var
             for (String var : vars) {
                 RDFNode node = sol.get(var);
-                row.add(node.toString());
+                if (var.equals("count"))
+                    row.add(node.toString().split("\\^")[0]);
+                else
+                    row.add(node.toString());
             }
             resultSet.add(row);
         }

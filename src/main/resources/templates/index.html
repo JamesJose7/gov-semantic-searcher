@@ -39,9 +39,15 @@
 </head>
 <body>
     <main id="container">
-        <h1>Buscador</h1>
+        <h1>Semantic Search</h1>
         <form th:action="@{/search}" method="get">
+            <label>Search:</label>
             <input type="text" name="q" placeholder="Query...">
+            <label>Filter:</label>
+            <input checked type="radio" id="tag_filter" value="tag_filter" name="filter"><label for="tag_filter" class="light">Tags</label><br>
+            <input type="radio" id="groups_filter" value="groups_filter" name="filter"><label for="groups_filter" class="light">Groups</label><br>
+            <input type="radio" id="publishers" value="publishers" name="filter"><label for="publishers" class="light">Publishers</label><br>
+
             <input type="submit" value="submit">
         </form>
 
