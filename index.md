@@ -2,7 +2,13 @@
 - José Eduardo Eguiguren
 - María José Mora
 
+## Recursos adicionales
+- [Documentación de la ontología](https://docs.google.com/document/d/129HaaDdgW2cDp9TVqH5SjqOm659qxXWdqQS0zofXMMs/edit?usp=sharing)
+- [Documentación de las aplicaciones](https://docs.google.com/document/d/15C89Cl23RUN7icIni0wJ4RGNWdTctrdTgvuX894wxOU/edit?usp=sharing)
+
 # Documentación
+A continuación se detalla la aplicación utilizada en la extracción de datos y generación de tripletas y la aplicación que consume dichos datos.
+
 ## Extractor de plataformas CKAN
 
 Repo: [link](https://github.com/JamesJose7/gov-ld)
@@ -71,7 +77,4 @@ También se ha implementado un generador de grafos a partir de una consulta SPAR
 ![graph](https://imgur.com/i3mltM3.png)
 #### Resultado
 ![graph result](https://imgur.com/dUzpwgM.png)
-
-## Recursos adicionales
-- [Documentación](https://docs.google.com/document/d/15C89Cl23RUN7icIni0wJ4RGNWdTctrdTgvuX894wxOU/edit?usp=sharing)
 
